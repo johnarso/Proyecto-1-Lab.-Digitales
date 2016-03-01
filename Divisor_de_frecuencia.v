@@ -23,20 +23,27 @@ module Divisor_de_frecuencia(
     input wire [7:0] frecnum,
     output reg clkdiv
     );
-	reg [9:0]q;
+	reg [9:0]qref;
+	reg [9:0]q=10'd0;
+	initial clkdiv=1'b0;
 	always @(posedge clk, posedge reset)
+	begin
+	qref=frecnum;
 	if (reset)
 		begin
 			q<=10'd0;
 			clkdiv<=0;
 		end
 	else
-		if (q==((frecnum/0.2)-1))
+		begin
+		qref=((50000/frecnum)-1);
+		if (q==qref)
 			begin
 			q<=10'd0;
-			clkdiv<=~clkdiv;
+			clkdiv=~clkdiv;
 			end
-	else
-		q=q+10'd1;
-
+		else
+			q=q+10'd1;
+		end
+	end
 endmodule
