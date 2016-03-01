@@ -21,9 +21,10 @@
 module control(
     input sel,
     output frec,
-    output cor
+    output cor,
+	 output cod
     );
 assign frec=sel;
 assign cor=~sel;
-
+assign cod=sel;
 endmodule
