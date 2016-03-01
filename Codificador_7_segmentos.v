@@ -24,7 +24,7 @@ module Codificador_7_segmentos(
 	 input control,
 	 input [9:0] corriente,
 	 output reg [3:0] selec_digito,
-	 output reg [7:0] numero_cod
+	 output [7:0] numero_cod
 	 );
 	 reg [9:0]var;
 	 reg [3:0]unidades;
@@ -34,6 +34,7 @@ module Codificador_7_segmentos(
 	 reg [7:0]auxiliar;
 	 reg [7:0]auxiliar2;
 	 reg [3:0]num;
+	 reg [7:0]codificacion;
 	
 	always @(posedge clock)
 	begin
@@ -67,8 +68,9 @@ module Codificador_7_segmentos(
 	millares<=auxiliar;
 	num=millares;
 	end
-	Memoria_display(
+	Memoria_display instancia_memo(
 		.CLK(clock),.numero(num), 
-		.controles_display(numero_cod)
+		.controles_display(codificacion)
 		);	
+	assign numero_cod=codificacion;
 endmodule
