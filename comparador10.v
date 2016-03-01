@@ -22,12 +22,16 @@ module comparador10(
     input wire [9:0] n1,
     input wire [9:0] n2,
 	 input wire clk,
+	 input reset,
     output reg pwm
     );
 	initial pwm=1'b0;
-	always @(posedge clk)	
-	if (n2>=n1)
-		pwm<=1'b1;
-	else pwm<=1'b0;
+	always @(posedge clk)
+		if(reset)
+			pwm<=1'b0;
+		else
+			if (n2<=n1)
+				pwm<=1'b1;
+			else pwm<=1'b0;
 
 endmodule
