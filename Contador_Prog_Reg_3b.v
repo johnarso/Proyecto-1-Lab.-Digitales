@@ -22,30 +22,25 @@ module Contador_Prog_Reg_3b(
 	 input boton_aumento,			 //Para aumentar
 	 input boton_disminuye, 		 //Para disminuir
 	 input enable,						 //Permite el funcionamiento del bloque
+	 input reset,
 	 output [2:0] numero_frec 	 //indica el número para seleccionar la frecuencia respectiva
     );
 	 
-	 reg lolo;     					//para los else que no que evitan warnings, NO TIENE IMPORTANCIA
 	 reg [2:0] cuenta;
-	 initial
-	 cuenta=0;
 	 
-	 always @(posedge boton_aumento)					//cuando hay un flaco positivo porque se presiona el boton para aumentar
+	 always @(posedge boton_aumento or posedge boton_disminuye or posedge reset)
+	 begin
+		if (reset)										//inicia el valor de cuenta
+			cuenta<=0;
+		else if (enable)
 		begin
-			if (enable==1)     							//Permite que se aumente si el control lo indica
+			if (boton_aumento)						//cuando hay un flaco positivo porque se presiona el boton para aumentar
 				cuenta=cuenta+1;
-			else
-				lolo=1;
-		end
-		
-	 always @(posedge boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
-		begin
-			if (enable==1)     							//Permite que se aumente si el control lo indica
+			else if (boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
 				cuenta=cuenta-1;
-			else
-				lolo=1;
 		end
-				
+	 end
+	 
 	assign numero_frec=cuenta;
 
 endmodule

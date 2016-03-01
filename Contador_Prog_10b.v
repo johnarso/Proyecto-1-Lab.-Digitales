@@ -20,24 +20,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Contador_Prog_10b(
 		input CLK,								//reloj con la frecuencia que el usuario ha seleccionado
+		input reset,
 		output [9:0] cuenta					
     );
 	 reg [9:0] contador;
-	 reg lolos;									//para los else que no que evitan warnings, NO TIENE IMPORTANCIA
-	 
-	 initial
-	 contador=0;
 	 
 	 always @(posedge CLK)					//cuenta siempre en los flancos de reloj
 		begin
+		if (reset) 
+			contador<=0;
+		else if (contador==1000)
+			contador <=0;
+		else 
 			contador=contador+10;
-			if (contador>1000)
-				contador=0;
-			else
-				lolos=1;
 		end
-	
-	assign cuenta=contador;
 
+	assign cuenta=contador;
 
 endmodule

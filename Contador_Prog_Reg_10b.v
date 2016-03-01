@@ -22,41 +22,37 @@ module Contador_Prog_Reg_10b(
 	 input boton_aumento,			 //Para aumentar
 	 input boton_disminuye, 		 //Para disminuir
 	 input enable,						 //Permite el funcionamiento del bloque
+	 input reset,
 	 output [9:0] cant_corriente 	 //indica el número para seleccionar la corriente respectiva
     );
-	 reg lola;     					//para los else que no que evitan warnings, NO TIENE IMPORTANCIA
-	 reg [9:0] cuenta;
-	 initial
-	 cuenta=0;
 	 
-	 always @(posedge boton_aumento)					//cuando hay un flaco positivo porque se presiona el boton para aumentar
+	 reg [9:0] cuenta;
+	 
+	 always @(posedge boton_aumento or posedge boton_disminuye or posedge reset)
+	 begin
+		if (reset)										//inicia el valor de cuenta
+			cuenta<=0;
+		else if (enable)								//siempre que este habilitado para contar
 		begin
-			if (enable==1)     							//Permite que se aumente si el control lo indica
-				begin
-				cuenta=cuenta+10;
-				if (cuenta>1000)
-					cuenta=0;
+			if (boton_aumento)						//cuando hay un flaco positivo porque se presiona el boton para aumentar
+			begin
+				if (cuenta==1000)						//condicion debido al limite de corriente
+					cuenta<=0;
 				else
-					lola=1;
-				end
-			else
-			lola=1;
-		end
-		
-	always @(posedge boton_disminuye)  				//cuando hay un flaco positivo porque se presiona el boton para disminuir
-		begin
-			if (enable==1)									//Permite que se disminuya si el control lo indica
-				begin
-				cuenta=cuenta-10;
-				if (cuenta>1000)
-					cuenta=1000;
+					cuenta=cuenta+10;					//cuenta de 10 en 10 amperes ascendentemente
+			end
+			
+			else if (boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
+			begin
+				if (cuenta==0)						//condicion debido al limite de corriente
+					cuenta<=1000;
 				else
-					lola=1;
-				end
-			else
-				lola=1;
+					cuenta=cuenta-10;					//cuenta de 10 en 10 descendentemente
+			end
+					
 		end
-		
-	assign cant_corriente=cuenta;
+	 end
+	 
+	assign cant_corriente=cuenta;					//asigna la cuenta a la salida
 
 endmodule
