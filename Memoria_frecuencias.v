@@ -21,29 +21,27 @@
 module Memoria_frecuencias(
 	input CLK,
 	input [2:0] num_frecuencia,        			//indicador de la frecuencia
-   output [7:0] frecuencia
+   input reset,
+	output [7:0] frecuencia
 	);
-
-	reg lolo;											//para los else que no que evitan warnings, NO TIENE IMPORTANCIA
 	reg [7:0] codigo;
-	
-	initial codigo=0;
-	
 	always @(posedge CLK)
+	if (reset)
+		codigo<=30;
+	else
 	begin
 		case(num_frecuencia)
-			3'b000: codigo=30;
-			3'b001: codigo=50;
-			3'b010: codigo=75;
-			3'b011: codigo=100;
-			3'b100: codigo=125;
-			3'b101: codigo=150;
-			3'b110: codigo=175;
-			3'b111: codigo=200;
-		default: lolo=1;
+			3'b000: codigo<=30;
+			3'b001: codigo<=50;
+			3'b010: codigo<=75;
+			3'b011: codigo<=100;
+			3'b100: codigo<=125;
+			3'b101: codigo<=150;
+			3'b110: codigo<=175;
+			3'b111: codigo<=200;
+			default: codigo<=30;
 		endcase
 	end
-	
 	assign frecuencia=codigo;
 	
 endmodule
