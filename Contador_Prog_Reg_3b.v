@@ -19,7 +19,6 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Contador_Prog_Reg_3b(
-	 input CLK,      				  	 //El reloj de la FPGA
 	 input boton_aumento,			 //Para aumentar
 	 input boton_disminuye, 		 //Para disminuir
 	 input enable,						 //Permite el funcionamiento del bloque
@@ -30,30 +29,23 @@ module Contador_Prog_Reg_3b(
 	 reg [2:0] cuenta;
 	 initial
 	 cuenta=0;
-	 always @(posedge CLK)
+	 
+	 always @(posedge boton_aumento)					//cuando hay un flaco positivo porque se presiona el boton para aumentar
 		begin
-			if (enable==1)     							//Permite la activación del módulo si el control lo indica
-			begin
-		
-				if (boton_aumento==1)					//aumenta la frecuencia cuando el usuario lo selecciona
-					
-					cuenta=cuenta+1;
-				
-				else if (boton_disminuye==1)		//disminuye la frecuencia si el usuario lo selecciona
-				
-					cuenta=cuenta-1;
-					
-				else
-				lolo=1;
-		
-			
-			end
-	 
+			if (enable==1)     							//Permite que se aumente si el control lo indica
+				cuenta=cuenta+1;
 			else
-			begin
-			end
-	 
+				lolo=1;
 		end
+		
+	 always @(posedge boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
+		begin
+			if (enable==1)     							//Permite que se aumente si el control lo indica
+				cuenta=cuenta-1;
+			else
+				lolo=1;
+		end
+				
 	assign numero_frec=cuenta;
 
 endmodule
