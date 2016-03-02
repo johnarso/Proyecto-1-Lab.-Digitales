@@ -4,12 +4,12 @@
 // Engineer: Johan Arrieta Solórzano
 // 
 // Create Date:    18:32:17 02/29/2016 
-// Design Name: Divisor de frecuencia
-// Module Name:    Divisor_de_frecuencia 
+// Design Name: 
+// Module Name:    
 // Project Name: Proyecto 1
 // Target Devices: Nexys 3
 // Tool versions: 
-// Description: Este modulo divide la frecuencia del reloj de la Nexys segun la frecuencia de salida que se desee en el PWM 
+// Description: 
 //
 // Dependencies: 
 //
@@ -23,12 +23,20 @@ module Divisor_de_frecuencia(
     input wire [7:0] frecnum,
     output reg clkdiv
     );
-	reg [9:0]qref;
-	reg [9:0]q=10'd0;
-	initial clkdiv=1'b0;
+	reg [10:0]qref;
+	reg [10:0]q;
+	wire [10:0]div;
+	wire [7:0]frec;
+	memoria_div instancia_mem(   
+	.num(frec),
+	.clock(clk),
+	.reset(reset),
+	.numdiv(div)
+ );
+ assign frecnum=frec;
 	always @(posedge clk, posedge reset)
 	begin
-	qref=frecnum;
+	
 	if (reset)
 		begin
 			q<=10'd0;
@@ -36,7 +44,7 @@ module Divisor_de_frecuencia(
 		end
 	else
 		begin
-		qref=((50000/frecnum)-1);
+		qref=((div)-1);
 		if (q==qref)
 			begin
 			q<=10'd0;
