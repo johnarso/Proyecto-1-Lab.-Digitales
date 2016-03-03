@@ -39,7 +39,7 @@ module Contador_Prog_Reg_10b(
 				if (cuenta==1000)						//condicion debido al limite de corriente
 					cuenta<=0;
 				else
-					cuenta=cuenta+10;					//cuenta de 10 en 10 amperes ascendentemente
+					cuenta=cuenta+50;					//cuenta de 10 en 10 amperes ascendentemente
 			end
 			
 			else if (boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
@@ -47,7 +47,7 @@ module Contador_Prog_Reg_10b(
 				if (cuenta==0)						//condicion debido al limite de corriente
 					cuenta<=1000;
 				else
-					cuenta=cuenta-10;					//cuenta de 10 en 10 descendentemente
+					cuenta=cuenta-50;					//cuenta de 10 en 10 descendentemente
 			end
 					
 		end

@@ -32,7 +32,7 @@ module Contador_Prog_10b(
 		else if (contador==1000)
 			contador <=0;
 		else 
-			contador=contador+10;
+			contador=contador+50;
 		end
 
 	assign cuenta=contador;
