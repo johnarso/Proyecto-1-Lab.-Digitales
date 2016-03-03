@@ -19,10 +19,11 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Codificador_7_segmentos(
-    input clock,
-	 input [7:0] frecuencia,
+    input clock,								//CLOCK DIVIDIDO PARA LA VELOCIDAD DEL DISPLAY	
+	 //input [7:0] frecuencia,				//PROVIENE DE LA MEMORIA DE FRECUENCIA
+	 input [2:0] cod_frecuencia,
 	 input control,
-	 input [9:0] corriente,
+	 input [9:0] corriente,					//PROVIENE DEL CONTADOR PROGRESIVO/REGRESIVO 10 BITS
 	 output reg [3:0] selec_digito,
 	 output [7:0] numero_cod
 	 );
@@ -38,14 +39,35 @@ module Codificador_7_segmentos(
 	
 	always @(posedge clock)
 	begin
-	 if (control==1)					//Significa frecuencia
-		assign var=frecuencia;
-	else                          //Significa corriente
+	
+		if (control)								//Significa frecuencia	
 		begin
-		assign var=corriente;
+			assign var=cod_frecuencia;
+			memoria(/*entrada*/"Cod_frecuencia", /*salida*/"unidades", /*salida*/"decenas",/**/);
+			num=unidades;
+			num=decenas;
+			num=centenas;
+			num=millares;
+			
 		end
 		
-	selec_digito=0;
+		
+		
+		else                          		//Significa corriente
+			begin
+			assign var=corriente;
+			end
+	end
+	Memoria_display instancia_memo(
+		.CLK(clock),.numero(num), 
+		.controles_display(codificacion)
+		);	
+	assign numero_cod=codificacion;
+endmodule
+
+
+/*
+selec_digito=0;
 	auxiliar<=var/10;
 	unidades<=var-(auxiliar*10);
 	num=unidades;
@@ -68,9 +90,5 @@ module Codificador_7_segmentos(
 	millares<=auxiliar;
 	num=millares;
 	end
-	Memoria_display instancia_memo(
-		.CLK(clock),.numero(num), 
-		.controles_display(codificacion)
-		);	
-	assign numero_cod=codificacion;
-endmodule
+	
+*/
