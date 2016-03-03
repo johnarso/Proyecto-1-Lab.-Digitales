@@ -30,20 +30,20 @@ module Memoria_display(
 	 always @(posedge CLK)
 	 begin
 		 if (reset)
-			codigo<=3;
+			codigo<=8'b11111111;
 		 else
 			case(numero)
-				4'b0000: codigo<=3;
-				4'b0001: codigo<=159;
-				4'b0010: codigo<=37;
-				4'b0011: codigo<=13;
-				4'b0100: codigo<=153;
-				4'b0101: codigo<=73;
-				4'b0110: codigo<=65;
-				4'b0111: codigo<=31;
-				4'b1000: codigo<=1;
-				4'b1001: codigo<=9;
-				default: codigo<=3;
+				4'b0000: codigo<=8'b10000001;
+				4'b0001: codigo<=8'b11001111;
+				4'b0010: codigo<=8'b10010010;
+				4'b0011: codigo<=8'b10000110;
+				4'b0100: codigo<=8'b11001100;
+				4'b0101: codigo<=8'b10100100;
+				4'b0110: codigo<=8'b10100000;
+				4'b0111: codigo<=8'b10001111;
+				4'b1000: codigo<=8'b10000000;
+				4'b1001: codigo<=8'b10000100;
+				default: codigo<=8'b11111111;
 			endcase
 	 end
 	
@@ -51,3 +51,7 @@ module Memoria_display(
 
 
 endmodule
+
+
+
+	 
