@@ -22,23 +22,23 @@ module memoria_div(
 input [7:0] num,
 input clock,
 input reset,
-output [10:0] numdiv
+output [6:0] numdiv
  );
- reg [10:0]ndiv;
+ reg [6:0]ndiv;
    always @(posedge clock)
       if (reset)
-         ndiv <= 11'b11010000011;
+         ndiv <= 6'b10001;
       else
          case (num)
-            8'b00011110 : ndiv <= 11'b11010000011;
-            8'b00110010 : ndiv <= 11'b01111101000;
-            8'b01001011 : ndiv <= 11'b01010011011;
-            8'b01100100 : ndiv <= 11'b00111110100;
-            8'b01111101 : ndiv <= 11'b00110010000;
-            8'b10010110 : ndiv <= 11'b00101001101;
-            8'b10101111 : ndiv <= 11'b00100011110;
-            8'b11001000 : ndiv <= 11'b00011111010;
-            default     : ndiv <= 11'b11010000011;
+            8'b00011110 : ndiv <= 7'b1010011;
+            8'b00110010 : ndiv <= 7'b0110010;
+            8'b01001011 : ndiv <= 7'b0100001;
+            8'b01100100 : ndiv <= 7'b0011001;
+            8'b01111101 : ndiv <= 7'b0010100;
+            8'b10010110 : ndiv <= 7'b0010001;
+            8'b10101111 : ndiv <= 7'b0001110;
+            8'b11001000 : ndiv <= 7'b0001101;
+            default     : ndiv <= 7'b1010011;
          endcase
 assign numdiv=ndiv;
 endmodule

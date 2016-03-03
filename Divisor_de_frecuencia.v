@@ -23,9 +23,9 @@ module Divisor_de_frecuencia(
     input wire [7:0] frecnum,
     output reg clkdiv
     );
-	reg [10:0]qref;
-	reg [10:0]q;
-	wire [10:0]div;
+	reg [6:0]qref;
+	reg [6:0]q;
+	wire [6:0]div;
 	wire [7:0]frec;
 	memoria_div instancia_mem(   
 	.num(frec),
@@ -39,7 +39,7 @@ module Divisor_de_frecuencia(
 	
 	if (reset)
 		begin
-			q<=10'd0;
+			q<=7'd0;
 			clkdiv<=0;
 		end
 	else
@@ -47,11 +47,11 @@ module Divisor_de_frecuencia(
 		qref=((div)-1);
 		if (q==qref)
 			begin
-			q<=10'd0;
+			q<=7'd0;
 			clkdiv=~clkdiv;
 			end
 		else
-			q=q+10'd1;
+			q=q+7'd1;
 		end
 	end
 endmodule
