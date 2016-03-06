@@ -21,37 +21,61 @@
 module Divisor_de_frecuencia(
     input wire clk,reset,
     input wire [7:0] frecnum,
-    output reg clkdiv
+    output reg clkdiv,
+	 output reg clk_display
     );
 	reg [6:0]qref;
 	reg [6:0]q;
 	wire [6:0]div;
 	wire [7:0]frec;
+	reg [14:0]i;
 	memoria_div instancia_mem(   
 	.num(frec),
 	.clock(clk),
 	.reset(reset),
 	.numdiv(div)
  );
- assign frecnum=frec;
+		
 	always @(posedge clk, posedge reset)
 	begin
-	
 	if (reset)
 		begin
-			q<=7'd0;
-			clkdiv<=0;
+		if (clkdiv==0 && clk_display==0)
+			begin
+				clkdiv<=1;
+				clk_display<=1;
+			end
+		else
+			begin
+				q<=7'd0;
+				i<=10'd0;
+				clkdiv<=0;
+				clk_display<=0;
+			end
 		end
 	else
 		begin
+		//para el display
+		if (i==15'd12499)
+		begin
+			i<=15'd0;
+			clk_display<=~clk_display;
+		end
+		else if (i!=15'd12499)
+			i<=i+15'd1;
+			
+		//para la frecuencia que el usuario selecciona
 		qref=((div)-1);
+		
 		if (q==qref)
 			begin
 			q<=7'd0;
-			clkdiv=~clkdiv;
+			clkdiv<=~clkdiv;
 			end
 		else
-			q=q+7'd1;
+			q<=q+7'd1;
 		end
 	end
+	assign frecnum=frec;
+
 endmodule

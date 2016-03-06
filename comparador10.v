@@ -25,7 +25,7 @@ module comparador10(
 	 input reset,
     output reg pwm
     );
-	initial pwm=1'b0;
+	//initial pwm=1'b0;						//hay que quitarlo,******* ¿Genera problemas al quitarlo?
 	always @(posedge clk)
 		if(reset)
 			pwm<=1'b0;

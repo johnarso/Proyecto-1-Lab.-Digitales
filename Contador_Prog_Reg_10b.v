@@ -31,26 +31,25 @@ module Contador_Prog_Reg_10b(
 	 always @(posedge boton_aumento or posedge boton_disminuye or posedge reset)
 	 begin
 		if (reset)										//inicia el valor de cuenta
-			cuenta<=0;
-		else if (enable)								//siempre que este habilitado para contar
-		begin
-			if (boton_aumento)						//cuando hay un flaco positivo porque se presiona el boton para aumentar
+			cuenta<=10'd500;
+		else if (boton_aumento)								//siempre que este habilitado para contar
+			if (enable)						//cuando hay un flaco positivo porque se presiona el boton para aumentar
 			begin
-				if (cuenta==1000)						//condicion debido al limite de corriente
-					cuenta<=0;
+				if (cuenta==10'd1000)						//condicion debido al limite de corriente
+					cuenta<=10'd0;
 				else
-					cuenta=cuenta+50;					//cuenta de 10 en 10 amperes ascendentemente
+					cuenta<=cuenta+10'd50;					//cuenta de 10 en 10 amperes ascendentemente
 			end
 			
-			else if (boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
+		else if (boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
+			if (enable)
 			begin
 				if (cuenta==0)						//condicion debido al limite de corriente
-					cuenta<=1000;
+					cuenta<=10'd1000;
 				else
-					cuenta=cuenta-50;					//cuenta de 10 en 10 descendentemente
+					cuenta<=cuenta-10'd50;					//cuenta de 10 en 10 descendentemente
 			end
 					
-		end
 	 end
 	 
 	assign cant_corriente=cuenta;					//asigna la cuenta a la salida

@@ -25,22 +25,15 @@ module Contador_Prog_Reg_3b(
 	 input reset,
 	 output [2:0] numero_frec 	 //indica el número para seleccionar la frecuencia respectiva
     );
-	 
 	 reg [2:0] cuenta;
-	 
 	 always @(posedge boton_aumento or posedge boton_disminuye or posedge reset)
 	 begin
 		if (reset)										//inicia el valor de cuenta
 			cuenta<=0;
-		else if (enable)
-		begin
-			if (boton_aumento)						//cuando hay un flaco positivo porque se presiona el boton para aumentar
-				cuenta=cuenta+1;
-			else if (boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
-				cuenta=cuenta-1;
-		end
+		else if (boton_aumento)			//cuando hay un flaco positivo porque se presiona el boton para aumentar
+				if (enable) cuenta<=numero_frec+1;
+		else if(boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
+				if (enable) cuenta<=numero_frec-1;
 	 end
-	 
-	assign numero_frec=cuenta;
-
+	 assign numero_frec=cuenta;
 endmodule
