@@ -35,7 +35,8 @@ module Codificador_7_Seg(
 	 begin
 		 if (reset)
 			begin contador<=2'b00;
-			variable<=frecuencia; end
+			variable<=frecuencia;
+			end
 		 if (control==1 && contador==0)					//escoje el modo de operación frecuencia o corriente
 			variable<=frecuencia;
 		 else if (control==0 && contador==0)

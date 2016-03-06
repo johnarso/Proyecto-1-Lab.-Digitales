@@ -65,7 +65,7 @@ module Divisor_de_frecuencia(
 			i<=i+15'd1;
 			
 		//para la frecuencia que el usuario selecciona
-		qref=((div)-1);
+		qref=((div)-1'b1);
 		
 		if (q==qref)
 			begin
@@ -76,6 +76,6 @@ module Divisor_de_frecuencia(
 			q<=q+7'd1;
 		end
 	end
-	assign frecnum=frec;
+	assign frec=frecnum;
 
 endmodule

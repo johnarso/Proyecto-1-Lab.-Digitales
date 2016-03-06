@@ -29,7 +29,11 @@ module DPWM(
 	 output PWM
 	 );
 	 
+	 wire reset;
+	 assign reset=RST;
 	 wire up;
+	 wire clknex;
+	 assign clknex=CLOCK_NEXYS;
 	 wire down;
 	 wire selection;
 	 wire CLOCK_DIV;
@@ -48,8 +52,8 @@ module DPWM(
     .aumentar(AUMENTO),
     .disminuir(DISMINUCION),
     .seleccion(OPCION),
-	 .clk(CLOCK_NEXYS),
-	 .reset(RST),
+	 .clk(clknex),
+	 .reset(reset),
     .au(up),
     .dis(down),
     .sel(selection)
@@ -68,7 +72,7 @@ module DPWM(
 	 .boton_aumento(up),			 
 	 .boton_disminuye(down), 		 
 	 .enable(EN_frecuencia),						 
-	 .reset(RST),
+	 .reset(reset),
 	 .numero_frec(FREQUENCY)	 
     );
 	 
@@ -77,22 +81,22 @@ module DPWM(
 	 .boton_aumento(up),			 
 	 .boton_disminuye(down), 		 
 	 .enable(EN_corriente),						 
-	 .reset(RST),
+	 .reset(reset),
 	 .cant_corriente(CURRENT) 	 
     );
 	 
 	 /*******************INSTANCIA DE LA MEMORIA DE FRECUENCIAS*******************/
 	 Memoria_frecuencias instancia_memo_frecuencias(
-	 .CLK(CLOCK_NEXYS),
+	 .CLK(clknex),
 	 .num_frecuencia(FREQUENCY),        			
-    .reset(RST),
+    .reset(reset),
 	 .frecuencia(IND_FREC)
 	 );
 	 
 	 /*******************INSTANCIA DEL DIVISOR DE FRECUENCIAS*******************/
 	 Divisor_de_frecuencia instancia_divisor_frecuencias(
-    .clk(CLOCK_NEXYS),
-	 .reset(RST),
+    .clk(clknex),
+	 .reset(reset),
     .frecnum(IND_FREC),
     .clkdiv(CLOCK_DIV),
 	 .clk_display(CLOCK_DISPLAY)
@@ -101,7 +105,7 @@ module DPWM(
 	 /*******************INSTANCIA DEL CONTADOR 10 BITS PROGRESIVO*******************/
 	 Contador_Prog_10b instancia_contador_10b_P(
 		.CLK(CLOCK_DIV),								
-		.reset(RST),
+		.reset(reset),
 		.cuenta(CONTADOR_CORRIENTES)					
     );
 	 
@@ -109,8 +113,8 @@ module DPWM(
 	 comparador10 instancia_comparador(
     .n1(CURRENT),
     .n2(CONTADOR_CORRIENTES),
-	 .clk(CLOCK_NEXYS),
-	 .reset(RST),
+	 .clk(clknex),
+	 .reset(reset),
     .pwm(PWM)
     );
 	 
@@ -119,7 +123,7 @@ module DPWM(
 	 .frecuencia(IND_FREC),							
 	 .corriente(CURRENT), 
 	 .control(EN_codificador),
-	 .reset(RST),
+	 .reset(reset),
 	 .clk_d(CLOCK_DISPLAY),
 	 .codificacion(NUM_CODIF),
 	 .digito(SEL_DIGITO)

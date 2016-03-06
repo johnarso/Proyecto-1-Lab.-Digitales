@@ -28,11 +28,11 @@ module Contador_Prog_10b(
 	 always @(posedge CLK)					//cuenta siempre en los flancos de reloj
 		begin
 		if (reset) 
-			contador<=0;
-		else if (contador==1000)
-			contador <=0;
+			contador<=1'b0;
+		else if (contador==10'd1000)
+			contador <=1'b0;
 		else 
-			contador<=contador+50;
+			contador<=contador+7'd50;
 		end
 
 	assign cuenta=contador;

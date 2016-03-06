@@ -31,9 +31,9 @@ module Contador_Prog_Reg_3b(
 		if (reset)										//inicia el valor de cuenta
 			cuenta<=0;
 		else if (boton_aumento)			//cuando hay un flaco positivo porque se presiona el boton para aumentar
-				if (enable) cuenta<=numero_frec+1;
+				if (enable) cuenta<=numero_frec+1'b1;
 		else if(boton_disminuye)				//cuando hay un flaco positivo porque se presiona el boton para disminuir
-				if (enable) cuenta<=numero_frec-1;
+				if (enable) cuenta<=numero_frec-1'b1;
 	 end
 	 assign numero_frec=cuenta;
 endmodule
