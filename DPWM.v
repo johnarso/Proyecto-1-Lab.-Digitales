@@ -24,7 +24,7 @@ module DPWM(
 	 input RST,
 	 input CLOCK_NEXYS,
 	 input OPCION,
-	 output [7:0] NUM_CODIF,
+	 output [6:0] NUM_CODIF,
 	 output [3:0] SEL_DIGITO,
 	 output PWM
 	 );
