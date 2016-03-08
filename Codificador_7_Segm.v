@@ -44,23 +44,23 @@ module Codificador_7_Seg(
 		if (variable==10'd0)									//realiza las operaciones seg?n cada caso
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b1111111;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1111111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -68,23 +68,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd30)								
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000110;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1111111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -92,23 +92,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd50)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1111111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -116,23 +116,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd75)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0100100;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0001111;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1111111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -140,23 +140,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd100)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1001111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -164,23 +164,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd125)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0100100;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0010010;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1001111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -188,23 +188,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd150)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1001111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -212,23 +212,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd175)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0100100;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0001111;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1001111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase 
@@ -236,23 +236,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd200)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0010010;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -260,23 +260,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd250)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0010010;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -284,23 +284,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd300)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0000110;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -308,23 +308,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd350)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0000110;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -332,23 +332,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd400)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1001100;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -356,23 +356,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd450)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b1001100;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -380,23 +380,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd500)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0100100;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -404,23 +404,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd501)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0100100;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -428,23 +428,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd550)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0100100;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -452,23 +452,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd600)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0100000;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -476,23 +476,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd650)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0100000;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -500,23 +500,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd700)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0001111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -524,23 +524,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd750)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0001111;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -548,23 +548,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd800)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0000000;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -572,23 +572,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd850)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0000000;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -596,23 +596,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd900)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0000100;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -620,23 +620,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd950)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0100100;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0000100;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1111111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
@@ -644,23 +644,23 @@ module Codificador_7_Seg(
 		else if (variable==10'd1000)
 			case (contador)
 				0: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b0000001;
 				end
 				1:begin
-					digito<=4'd2;
+					digito<=4'd13;
 					codificacion<=7'b0000001;
 				end
 				2: begin
-					digito<=4'd4;
+					digito<=4'd11;
 					codificacion<=7'b0000001;
 				end
 				3: begin
-					digito<=4'd8;
+					digito<=4'd7;
 					codificacion<=7'b1001111;
 				end
 				default: begin
-					digito<=4'd1;
+					digito<=4'd14;
 					codificacion<=7'b1111111;
 				end
 			endcase
