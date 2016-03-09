@@ -56,7 +56,7 @@ module Divisor_f(
             default : ndiv = 7'b1010011;
          endcase
 			
-			if (cont_f==(ndiv-7'd1))
+			if (cont_f==(ndiv-7'd2))
 			begin
 				cont_f=7'd0;
 				clkdiv=~clkdiv;
